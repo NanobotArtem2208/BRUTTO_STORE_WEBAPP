@@ -21,38 +21,6 @@ const products = [
     {id: '14', img: 'https://ae01.alicdn.com/kf/HTB1lkXUSFXXXXa.XpXXq6xXFXXXw/-.jpg' ,title: 'Куртка 7', price: 600, description: 'Зеленого цвета, теплая'},
     {id: '15', img: 'https://ae01.alicdn.com/kf/HTB1lkXUSFXXXXa.XpXXq6xXFXXXw/-.jpg' ,title: 'Джинсы 4', price: 5500, description: 'Синего цвета, прямые'},
     {id: '16', img: 'https://ae01.alicdn.com/kf/HTB1lkXUSFXXXXa.XpXXq6xXFXXXw/-.jpg' ,title: 'Куртка 5', price: 12000, description: 'Зеленого цвета, теплая'},
-    {id: '1', img: 'https://ae01.alicdn.com/kf/HTB1lkXUSFXXXXa.XpXXq6xXFXXXw/-.jpg' ,title: 'Джинсы', price: 5000, description: 'Синего цвета, прямые'},
-    {id: '2', img: 'https://ae01.alicdn.com/kf/HTB1lkXUSFXXXXa.XpXXq6xXFXXXw/-.jpg' ,title: 'Куртка', price: 12000, description: 'Зеленого цвета, теплая'},
-    {id: '3', img: 'https://ae01.alicdn.com/kf/HTB1lkXUSFXXXXa.XpXXq6xXFXXXw/-.jpg' ,title: 'Джинсы 2', price: 5000, description: 'Синего цвета, прямые'},
-    {id: '4', img: 'https://ae01.alicdn.com/kf/HTB1lkXUSFXXXXa.XpXXq6xXFXXXw/-.jpg' ,title: 'Куртка 8', price: 122, description: 'Зеленого цвета, теплая'},
-    {id: '5', img: 'https://ae01.alicdn.com/kf/HTB1lkXUSFXXXXa.XpXXq6xXFXXXw/-.jpg' ,title: 'Джинсы 3', price: 5000, description: 'Синего цвета, прямые'},
-    {id: '6', img: 'https://ae01.alicdn.com/kf/HTB1lkXUSFXXXXa.XpXXq6xXFXXXw/-.jpg' ,title: 'Куртка 7', price: 600, description: 'Зеленого цвета, теплая'},
-    {id: '7', img: 'https://ae01.alicdn.com/kf/HTB1lkXUSFXXXXa.XpXXq6xXFXXXw/-.jpg' ,title: 'Джинсы 4', price: 5500, description: 'Синего цвета, прямые'},
-    {id: '8', img: 'https://ae01.alicdn.com/kf/HTB1lkXUSFXXXXa.XpXXq6xXFXXXw/-.jpg' ,title: 'Куртка 5', price: 12000, description: 'Зеленого цвета, теплая'},
-    {id: '9', img: 'https://ae01.alicdn.com/kf/HTB1lkXUSFXXXXa.XpXXq6xXFXXXw/-.jpg' ,title: 'Джинсы', price: 5000, description: 'Синего цвета, прямые'},
-    {id: '10', img: 'https://ae01.alicdn.com/kf/HTB1lkXUSFXXXXa.XpXXq6xXFXXXw/-.jpg' ,title: 'Куртка', price: 12000, description: 'Зеленого цвета, теплая'},
-    {id: '11', img: 'https://ae01.alicdn.com/kf/HTB1lkXUSFXXXXa.XpXXq6xXFXXXw/-.jpg' ,title: 'Джинсы 2', price: 5000, description: 'Синего цвета, прямые'},
-    {id: '12', img: 'https://ae01.alicdn.com/kf/HTB1lkXUSFXXXXa.XpXXq6xXFXXXw/-.jpg' ,title: 'Куртка 8', price: 122, description: 'Зеленого цвета, теплая'},
-    {id: '13', img: 'https://ae01.alicdn.com/kf/HTB1lkXUSFXXXXa.XpXXq6xXFXXXw/-.jpg' ,title: 'Джинсы 3', price: 5000, description: 'Синего цвета, прямые'},
-    {id: '14', img: 'https://ae01.alicdn.com/kf/HTB1lkXUSFXXXXa.XpXXq6xXFXXXw/-.jpg' ,title: 'Куртка 7', price: 600, description: 'Зеленого цвета, теплая'},
-    {id: '15', img: 'https://ae01.alicdn.com/kf/HTB1lkXUSFXXXXa.XpXXq6xXFXXXw/-.jpg' ,title: 'Джинсы 4', price: 5500, description: 'Синего цвета, прямые'},
-    {id: '16', img: 'https://ae01.alicdn.com/kf/HTB1lkXUSFXXXXa.XpXXq6xXFXXXw/-.jpg' ,title: 'Куртка 5', price: 12000, description: 'Зеленого цвета, теплая'},
-    {id: '1', img: 'https://ae01.alicdn.com/kf/HTB1lkXUSFXXXXa.XpXXq6xXFXXXw/-.jpg' ,title: 'Джинсы', price: 5000, description: 'Синего цвета, прямые'},
-    {id: '2', img: 'https://ae01.alicdn.com/kf/HTB1lkXUSFXXXXa.XpXXq6xXFXXXw/-.jpg' ,title: 'Куртка', price: 12000, description: 'Зеленого цвета, теплая'},
-    {id: '3', img: 'https://ae01.alicdn.com/kf/HTB1lkXUSFXXXXa.XpXXq6xXFXXXw/-.jpg' ,title: 'Джинсы 2', price: 5000, description: 'Синего цвета, прямые'},
-    {id: '4', img: 'https://ae01.alicdn.com/kf/HTB1lkXUSFXXXXa.XpXXq6xXFXXXw/-.jpg' ,title: 'Куртка 8', price: 122, description: 'Зеленого цвета, теплая'},
-    {id: '5', img: 'https://ae01.alicdn.com/kf/HTB1lkXUSFXXXXa.XpXXq6xXFXXXw/-.jpg' ,title: 'Джинсы 3', price: 5000, description: 'Синего цвета, прямые'},
-    {id: '6', img: 'https://ae01.alicdn.com/kf/HTB1lkXUSFXXXXa.XpXXq6xXFXXXw/-.jpg' ,title: 'Куртка 7', price: 600, description: 'Зеленого цвета, теплая'},
-    {id: '7', img: 'https://ae01.alicdn.com/kf/HTB1lkXUSFXXXXa.XpXXq6xXFXXXw/-.jpg' ,title: 'Джинсы 4', price: 5500, description: 'Синего цвета, прямые'},
-    {id: '8', img: 'https://ae01.alicdn.com/kf/HTB1lkXUSFXXXXa.XpXXq6xXFXXXw/-.jpg' ,title: 'Куртка 5', price: 12000, description: 'Зеленого цвета, теплая'},
-    {id: '9', img: 'https://ae01.alicdn.com/kf/HTB1lkXUSFXXXXa.XpXXq6xXFXXXw/-.jpg' ,title: 'Джинсы', price: 5000, description: 'Синего цвета, прямые'},
-    {id: '10', img: 'https://ae01.alicdn.com/kf/HTB1lkXUSFXXXXa.XpXXq6xXFXXXw/-.jpg' ,title: 'Куртка', price: 12000, description: 'Зеленого цвета, теплая'},
-    {id: '11', img: 'https://ae01.alicdn.com/kf/HTB1lkXUSFXXXXa.XpXXq6xXFXXXw/-.jpg' ,title: 'Джинсы 2', price: 5000, description: 'Синего цвета, прямые'},
-    {id: '12', img: 'https://ae01.alicdn.com/kf/HTB1lkXUSFXXXXa.XpXXq6xXFXXXw/-.jpg' ,title: 'Куртка 8', price: 122, description: 'Зеленого цвета, теплая'},
-    {id: '13', img: 'https://ae01.alicdn.com/kf/HTB1lkXUSFXXXXa.XpXXq6xXFXXXw/-.jpg' ,title: 'Джинсы 3', price: 5000, description: 'Синего цвета, прямые'},
-    {id: '14', img: 'https://ae01.alicdn.com/kf/HTB1lkXUSFXXXXa.XpXXq6xXFXXXw/-.jpg' ,title: 'Куртка 7', price: 600, description: 'Зеленого цвета, теплая'},
-    {id: '15', img: 'https://ae01.alicdn.com/kf/HTB1lkXUSFXXXXa.XpXXq6xXFXXXw/-.jpg' ,title: 'Джинсы 4', price: 5500, description: 'Синего цвета, прямые'},
-    {id: '16', img: 'https://ae01.alicdn.com/kf/HTB1lkXUSFXXXXa.XpXXq6xXFXXXw/-.jpg' ,title: 'Куртка 5', price: 12000, description: 'Зеленого цвета, теплая'},
 ]
 
 const getTotalPrice = (items = []) => {
@@ -71,7 +39,7 @@ const ProductList = () => {
             totalPrice: getTotalPrice(addedItems),
             queryId,
         }
-        fetch('http://85.119.146.179:8000/web-data', {
+        fetch('http://localhost:8000', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -104,7 +72,7 @@ const ProductList = () => {
         } else {
             tg.MainButton.show();
             tg.MainButton.setParams({
-                text: `Купить ${getTotalPrice(newItems)}`
+                text: `Купить ${getTotalPrice(newItems)}₽`
             })
         }
     }
