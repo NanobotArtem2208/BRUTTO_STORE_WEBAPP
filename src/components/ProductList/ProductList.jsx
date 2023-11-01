@@ -47,7 +47,7 @@ const ProductList = () => {
         //     }
         //     tg.sendData(JSON.stringify(data))
         // }, [addedItems])
-        fetch('http://26.85.197.191:DESKTOP-7CENSV1', {
+        fetch('http://26.85.197.191:DESKTOP-7CENSV11', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
