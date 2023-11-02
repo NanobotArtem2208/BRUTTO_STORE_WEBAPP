@@ -1,87 +1,82 @@
-import React, {useState} from 'react';
+import React, { useState, useEffect } from 'react';
 import './ProductList.css';
-import ProductItem from "../ProductItem/ProductItem";
-import {useTelegram} from "../../hooks/useTelegram";
-import {useCallback, useEffect} from "react";
-
-const products = [
-    {id: '1', img: 'https://ae01.alicdn.com/kf/HTB1lkXUSFXXXXa.XpXXq6xXFXXXw/-.jpg' ,title: 'Джинсы', price: 5000, description: 'Синего цвета, прямые'},
-    {id: '2', img: 'https://ae01.alicdn.com/kf/HTB1lkXUSFXXXXa.XpXXq6xXFXXXw/-.jpg' ,title: 'Куртка', price: 12000, description: 'Зеленого цвета, теплая'},
-    {id: '3', img: 'https://ae01.alicdn.com/kf/HTB1lkXUSFXXXXa.XpXXq6xXFXXXw/-.jpg' ,title: 'Джинсы 2', price: 5000, description: 'Синего цвета, прямые'},
-    {id: '4', img: 'https://ae01.alicdn.com/kf/HTB1lkXUSFXXXXa.XpXXq6xXFXXXw/-.jpg' ,title: 'Куртка 8', price: 122, description: 'Зеленого цвета, теплая'},
-    {id: '5', img: 'https://ae01.alicdn.com/kf/HTB1lkXUSFXXXXa.XpXXq6xXFXXXw/-.jpg' ,title: 'Джинсы 3', price: 5000, description: 'Синего цвета, прямые'},
-    {id: '6', img: 'https://ae01.alicdn.com/kf/HTB1lkXUSFXXXXa.XpXXq6xXFXXXw/-.jpg' ,title: 'Куртка 7', price: 600, description: 'Зеленого цвета, теплая'},
-    {id: '7', img: 'https://ae01.alicdn.com/kf/HTB1lkXUSFXXXXa.XpXXq6xXFXXXw/-.jpg' ,title: 'Джинсы 4', price: 5500, description: 'Синего цвета, прямые'},
-    {id: '8', img: 'https://ae01.alicdn.com/kf/HTB1lkXUSFXXXXa.XpXXq6xXFXXXw/-.jpg' ,title: 'Куртка 5', price: 12000, description: 'Зеленого цвета, теплая'},
-    {id: '9', img: 'https://ae01.alicdn.com/kf/HTB1lkXUSFXXXXa.XpXXq6xXFXXXw/-.jpg' ,title: 'Джинсы', price: 5000, description: 'Синего цвета, прямые'},
-    {id: '10', img: 'https://ae01.alicdn.com/kf/HTB1lkXUSFXXXXa.XpXXq6xXFXXXw/-.jpg' ,title: 'Куртка', price: 12000, description: 'Зеленого цвета, теплая'},
-    {id: '11', img: 'https://ae01.alicdn.com/kf/HTB1lkXUSFXXXXa.XpXXq6xXFXXXw/-.jpg' ,title: 'Джинсы 2', price: 5000, description: 'Синего цвета, прямые'},
-    {id: '12', img: 'https://ae01.alicdn.com/kf/HTB1lkXUSFXXXXa.XpXXq6xXFXXXw/-.jpg' ,title: 'Куртка 8', price: 122, description: 'Зеленого цвета, теплая'},
-    {id: '13', img: 'https://ae01.alicdn.com/kf/HTB1lkXUSFXXXXa.XpXXq6xXFXXXw/-.jpg' ,title: 'Джинсы 3', price: 5000, description: 'Синего цвета, прямые'},
-    {id: '14', img: 'https://ae01.alicdn.com/kf/HTB1lkXUSFXXXXa.XpXXq6xXFXXXw/-.jpg' ,title: 'Куртка 7', price: 600, description: 'Зеленого цвета, теплая'},
-    {id: '15', img: 'https://ae01.alicdn.com/kf/HTB1lkXUSFXXXXa.XpXXq6xXFXXXw/-.jpg' ,title: 'Джинсы 4', price: 5500, description: 'Синего цвета, прямые'},
-    {id: '16', img: 'https://ae01.alicdn.com/kf/HTB1lkXUSFXXXXa.XpXXq6xXFXXXw/-.jpg' ,title: 'Куртка 5', price: 12000, description: 'Зеленого цвета, теплая'},
-]
-
-const getTotalPrice = (items = []) => {
-    return items.reduce((acc, item) => {
-        return acc += item.price
-    }, 0)
-}
+import ProductItem from '../ProductItem/ProductItem';
+import { useTelegram } from '../../hooks/useTelegram';
 
 const ProductList = () => {
-    const [addedItems, setAddedItems] = useState([]);
-    const {tg, queryId} = useTelegram();
+  const [products, setProducts] = useState([]);
+  const [addedItems, setAddedItems] = useState([]);
+  const { tg, queryId } = useTelegram();
 
-        const onSendData = useCallback(() => {
-            const data = {
-                products: addedItems,
-                totalPrice: getTotalPrice(addedItems),
-                queryId,
-            }
-            tg.sendData(JSON.stringify(data))
-        }, [addedItems])
+  useEffect(() => {
+    // Здесь вы можете использовать ваш API для получения товаров из базы данных
+    // Например, вызовите функцию fetchData() для получения данных
 
-    useEffect(() => {
-        tg.onEvent('mainButtonClicked', onSendData)
-        return () => {
-            tg.offEvent('mainButtonClicked', onSendData)
-        }
-    }, [onSendData])
+    // Пример:
+    const fetchData = async () => {
+      try {
+        const response = await fetch('/api/products');
+        const data = await response.json();
+        setProducts(data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
 
-    const onAdd = (product) => {
-        const alreadyAdded = addedItems.find(item => item.id === product.id);
-        let newItems = [];
+    fetchData();
+  }, []);
 
-        if(alreadyAdded) {
-            newItems = addedItems.filter(item => item.id !== product.id);
-        } else {
-            newItems = [...addedItems, product];
-        }
+  const getTotalPrice = () => {
+    return addedItems.reduce((acc, item) => {
+      return acc + item.price;
+    }, 0);
+  };
 
-        setAddedItems(newItems)
+  const onSendData = () => {
+    const data = {
+      products: addedItems,
+      totalPrice: getTotalPrice(),
+      queryId,
+    };
+    tg.sendData(JSON.stringify(data));
+  };
 
-        if(newItems.length === 0) {
-            tg.MainButton.hide();
-        } else {
-            tg.MainButton.show();
-            tg.MainButton.setParams({
-                text: `Купить ${getTotalPrice(newItems)}₽`
-            })
-        }
+  useEffect(() => {
+    tg.onEvent('mainButtonClicked', onSendData);
+    return () => {
+      tg.offEvent('mainButtonClicked', onSendData);
+    };
+  }, [addedItems]);
+
+  const onAdd = (product) => {
+    const alreadyAdded = addedItems.find((item) => item.id === product.id);
+    let newItems = [];
+
+    if (alreadyAdded) {
+      newItems = addedItems.filter((item) => item.id !== product.id);
+    } else {
+      newItems = [...addedItems, product];
     }
 
-    return (
-        <div className={'list'}>
-            {products.map(item => (
-                <ProductItem
-                    product={item}
-                    onAdd={onAdd}
-                    className={'item'}
-                />
-            ))}
-        </div>
-    );
+    setAddedItems(newItems);
+
+    if (newItems.length === 0) {
+      tg.MainButton.hide();
+    } else {
+      tg.MainButton.show();
+      tg.MainButton.setParams({
+        text: `Купить ${getTotalPrice()}₽`,
+      });
+    }
+  };
+
+  return (
+    <div className="list">
+      {products.map((item) => (
+        <ProductItem key={item.id} product={item} onAdd={onAdd} className="item" />
+      ))}
+    </div>
+  );
 };
 
 export default ProductList;

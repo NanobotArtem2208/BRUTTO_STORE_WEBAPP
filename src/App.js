@@ -1,27 +1,23 @@
-import './App.css';
-import {useEffect} from "react";
-import {useTelegram} from "./hooks/useTelegram";
-import Header from "./components/Header/Header";
-import {Route, Routes} from 'react-router-dom'
-import ProductList from "./components/ProductList/ProductList";
-import Admin from "./components/Admin/Admin";
+import React from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import ProductList from './components/ProductList/ProductList';
+import Admin from './components/Admin/Admin';
+import { useTelegram } from './hooks/useTelegram';
 
-function App() {
-    const {onToggleButton, tg} = useTelegram();
+const App = () => {
+  const { onToggleButton } = useTelegram();
 
-    useEffect(() => {
-        tg.ready();
-    }, [])
-
-    return (
-        <div className="App">
-            <Header />
-            <Routes>
-                <Route index element={<ProductList />}/>
-                <Route path={'Admin'} element={<Admin />}/>
-            </Routes>
-        </div>
-    );
-}
+  return (
+    <div className="App">
+      <BrowserRouter>
+        <button onClick={onToggleButton}>Toggle Button</button>
+        <Routes>
+          <Route path="/" element={<ProductList />} />
+          <Route path="/admin" element={<Admin />} />
+        </Routes>
+      </BrowserRouter>
+    </div>
+  );
+};
 
 export default App;
